@@ -1,34 +1,25 @@
 package com.example.project;
 
-
-import java.util.Objects;
-
 public class BookStore{
-
 
     //requires at least 2 attributes Book[] books, User[] users (initialized to an empty array of 10 max users)
     private Book[] books = new Book[5];
-    private static User[] users = new User[10];
-
+    private User[] users = new User[10];
 
     //requires 1 empty constructor
     public BookStore() {}
-
 
     public User[] getUsers(){
         return users;
     }
 
-
     public void setUsers(User[] newUsers){
         users = newUsers;
     }
 
-
     public Book[] getBooks() {
         return books;
     }
-
 
     public void addUser(User user) {
         boolean reachedempty = false;
@@ -40,20 +31,14 @@ public class BookStore{
         }
     }
 
-
     public void removeUser(User user) {
         for (int i = 0; i < users.length; i++) {
             if (users[i] != null && users[i].equals(user)) {
                 users[i] = null;
-                consolidateUsers();
-                break;
             }
         }
+        consolidateUsers();
     }
-
-
-    
-
 
     public void consolidateUsers(){
         User[] newList = new User[users.length]; //creates a list
@@ -67,9 +52,6 @@ public class BookStore{
         users = newList;
     }
 
-
-
- 
     public void addBook(Book book) {
         boolean reachedempty = false;
         for (int i = 0; i < books.length; i++) { //goes through each element, looking for the earliest null
@@ -79,7 +61,6 @@ public class BookStore{
             }
         }
     }
-
 
     public void insertBook(Book book, int index) { //shift the books
         Book[] newlist = new Book[5];
@@ -92,7 +73,6 @@ public class BookStore{
         }
         books = newlist;
     }
-
 
     public void removeBook(Book book) {
         int length = 0;
@@ -140,12 +120,8 @@ public class BookStore{
         return str;
     }
 
-
         public int getLength() {
             return users.length;
         }
 
-
-
 }
-
