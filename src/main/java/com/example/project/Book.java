@@ -16,7 +16,7 @@ public class Book{
         this.isbn = isbn;
         this.quantity = quantity;
     }
-
+// all the get and set methods
     public String getTitle() {
         return title;
     }

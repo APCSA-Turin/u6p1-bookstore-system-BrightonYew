@@ -33,11 +33,11 @@ public class BookStore{
 
     public void removeUser(User user) {
         for (int i = 0; i < users.length; i++) {
-            if (users[i] != null && users[i].equals(user)) {
+            if (users[i] != null && users[i].equals(user)) { // searches if each element equals user, and makes it null
                 users[i] = null;
             }
         }
-        consolidateUsers();
+        consolidateUsers(); //compresses so that there is no null elements in between
     }
 
     public void consolidateUsers(){
@@ -46,7 +46,7 @@ public class BookStore{
         for (int j = 0; j < users.length; j++) { //copies elements from one list to another, but if it is not nulls
             if (users[j] != null) {
                 newList[addindex] = users[j];
-                addindex++; //makes sure that if null, the new list lags behind one step
+                addindex++; //makes sure that if null, the new list lags behind one step, so no null values in between
             }
         }
         users = newList;
@@ -57,7 +57,7 @@ public class BookStore{
         for (int i = 0; i < books.length; i++) { //goes through each element, looking for the earliest null
             if (books[i] == null && reachedempty == false) {
                 reachedempty = true;
-                books[i] = book;
+                books[i] = book; //assigns book to that earliest null
             }
         }
     }
