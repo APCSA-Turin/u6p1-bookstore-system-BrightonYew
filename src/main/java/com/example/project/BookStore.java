@@ -23,10 +23,10 @@ public class BookStore{
 
     public void addUser(User user) {
         boolean reachedempty = false;
-        for (int i = 0; i < books.length; i++) { //searches for the earliest instance of a empty spot and adds user. Does this only once
+        for (int i = 0; i < books.length; i++) { //searches for the earliest instance of a empty spot
             if (users[i] == null && reachedempty == false) {
-                reachedempty = true;
-                users[i] = user;
+                reachedempty = true; //"reachedempty" makes sure this only happens once
+                users[i] = user; //adds user to the list
             }
         }
     }
@@ -49,7 +49,7 @@ public class BookStore{
                 addindex++; //makes sure that if null, the new list lags behind one step, so no null values in between
             }
         }
-        users = newList;
+        users = newList;//replace the list with the new list
     }
 
     public void addBook(Book book) {
@@ -62,7 +62,7 @@ public class BookStore{
         }
     }
 
-    public void insertBook(Book book, int index) { //shift the books
+    public void insertBook(Book book, int index) {
         Book[] newlist = new Book[5];
         for (int j = 0; j < newlist.length; j++) { //copies the list
             newlist[j] = books[j];
@@ -76,7 +76,7 @@ public class BookStore{
 
     public void removeBook(Book book) {
         int length = 0;
-        for (int i = 0; i < books.length; i++) { //goes thrpugh each element and checks if it equals book
+        for (int i = 0; i < books.length; i++) { //goes through each element and checks if it equals book
             if (books[i] != null && books[i].equals(book)) {
                 if (books[i].getQuantity() == 1) { //if only one copy, remove it, and lower the list length by one
                     books[i] = null;
@@ -87,7 +87,7 @@ public class BookStore{
                 }
             }
         }
-        //just consolidate code
+        //just consolidate code, but with books instead of users
         Book[] newList = new Book[length]; //creates a list, based on if it or not removed a book
         int addindex = 0;
         for (int j = 0; j < books.length; j++) { //copies elements from one list to another, but if it is not nulls
@@ -119,9 +119,4 @@ public class BookStore{
             str += users.length;
         return str;
     }
-
-        public int getLength() {
-            return users.length;
-        }
-
 }

@@ -38,14 +38,14 @@ public class User{
 
 
 public String bookListInfo() {
-    if (book == null || book.length == 0) { //if null, all 5 are empty
+    if (book == null || book.length == 0) { //if null, return that all 5 are empty
         return "empty\nempty\nempty\nempty\nempty\n";
     }
-    String str = new String();
+    String str = "";
     for (int i = 0; i < 5; i++) { 
         if (book[i] == null) { //if a specific element null, report it empty
             str += "empty\n";
-        } else { //else, print out everything about the bookv
+        } else { //else, print out everything about the book
             str += "Title: " + book[i].getTitle()
                + ", Author: " + book[i].getAuthor()
                + ", Year: " + book[i].getYearPublished()
